@@ -1,0 +1,2 @@
+brainboost_desktop_package
+numpy>=1.21.0
