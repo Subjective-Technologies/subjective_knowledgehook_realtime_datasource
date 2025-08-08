@@ -78,50 +78,16 @@ class SubjectiveKnowledgeHookRealTimeDataSource(SubjectiveDataSource):
                 break  # Exit the loop on error
 
     def get_icon(self) -> str:
-        """
-        Return the SVG code for the data source icon.
-
-        Returns:
-            str: SVG string representing the icon.
-        """
-        # Example SVG icon representing knowledge hooks
-        return """
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="64"
-                    height="64"
-                    viewBox="0 0 64 64">
-                <!-- Rectangle 1 (Red) -->
-                <rect x="4" y="4" width="10" height="12" fill="#FF0000" />
-
-                <!-- Rectangle 2 (Gold) -->
-                <rect x="20" y="6" width="14" height="20" fill="#FFD700" />
-
-                <!-- Rectangle 3 (Green) -->
-                <rect x="36" y="2" width="16" height="10" fill="#00FF00" />
-
-                <!-- Rectangle 4 (Blue) -->
-                <rect x="2" y="22" width="12" height="10" fill="#0000FF" />
-
-                <!-- Rectangle 5 (Magenta) -->
-                <rect x="16" y="32" width="24" height="14" fill="#FF00FF" />
-
-                <!-- Rectangle 6 (Orange) -->
-                <rect x="44" y="18" width="16" height="14" fill="#FFA500" />
-
-                <!-- Rectangle 7 (Purple) -->
-                <rect x="4" y="46" width="10" height="16" fill="#800080" />
-
-                <!-- Rectangle 8 (Teal) -->
-                <rect x="30" y="48" width="16" height="10" fill="#008080" />
-
-                <!-- Rectangle 9 (Orchid) -->
-                <rect x="50" y="32" width="8" height="18" fill="#DA70D6" />
-
-                <!-- Rectangle 10 (Olive) -->
-                <rect x="22" y="50" width="12" height="12" fill="#808000" />
-                </svg>
-
-                """
+        """Return SVG icon content, preferring a local icon.svg in the plugin folder."""
+        import os
+        icon_path = os.path.join(os.path.dirname(__file__), 'icon.svg')
+        try:
+            if os.path.exists(icon_path):
+                with open(icon_path, 'r', encoding='utf-8') as f:
+                    return f.read()
+        except Exception:
+            pass
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="8" fill="#10b981"/><circle cx="24" cy="24" r="4" fill="#fff"/><circle cx="40" cy="24" r="4" fill="#fff"/><rect x="20" y="36" width="24" height="6" fill="#fff"/></svg>'
 
     def get_connection_data(self) -> Dict[str, Any]:
         """
