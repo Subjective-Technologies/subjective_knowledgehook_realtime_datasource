@@ -1,4 +1,5 @@
 {
+  "description": "Captures desktop snapshots at a configurable interval, extracts OCR text/regions, and streams realtime visual knowledge hooks downstream.",
   "domainCategory": "Data & Analytics",
   "subjectiveTechnologyElement": "KnowledgeHooks",
   "publisher": "BrainBoost Ltd.",
@@ -9,7 +10,7 @@
     {
       "type": "splitList",
       "title": "Knowledge Hook Real Time",
-      "text": "A Subjective data source for knowledge hook real time.",
+      "text": "Captures desktop snapshots at a configurable interval, extracts OCR text/regions, and streams realtime visual knowledge hooks downstream.",
       "image": {
         "src": "/subjective_knowledgehook_realtime_datasource/icon.svg",
         "alt": "Knowledge Hook Real Time icon"
